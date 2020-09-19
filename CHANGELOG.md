@@ -1,3 +1,57 @@
+commit 3aa7b140bb900d0e943107467a30001e47eeac99
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 22:35:35 2020 -0400
+
+    Fixed Ansible linting errors
+
+commit 8e8567b0a6a1727bb7fbdfebe15e469a982b9866
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 22:02:10 2020 -0400
+
+    Updated distros supported
+
+commit 29aa1886c2c0b20411c06fb31ff0b576d2be9bd1
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 22:01:28 2020 -0400
+
+    Added logic for service name between distros
+
+commit 138e500a0e71fbc68e2c7f693210fa30eb4dc2f1
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:54:52 2020 -0400
+
+    Removed tags and renamed include to include_tasks
+
+commit a02763eac5250aee706642adc463ce55417999a0
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:54:29 2020 -0400
+
+    Forgot to add set_facts task previously
+
+commit fc1324b5a2b62392aad5bce7312ba70ae2a71d82
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:49:44 2020 -0400
+
+    Added RedHat support and set_facts to define config file
+
+commit fdaab443ce0babd525bac7f7d897fd8881de803c
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:49:00 2020 -0400
+
+    Added file mode for config
+
+commit 1aed9fa8c04b99706c6a314bd5553bd64d19e6d1
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:42:58 2020 -0400
+
+    added on pull requests as well
+
+commit 85373c3e06de556d2dba62e0a9dc1b0c550fc1d4
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Sep 18 21:39:44 2020 -0400
+
+    New files, etc. from Cookiecutter template
+
 commit 85bf98e23617b46ec179cfa70ed7815f6f83b727
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Fri Sep 18 21:39:26 2020 -0400
