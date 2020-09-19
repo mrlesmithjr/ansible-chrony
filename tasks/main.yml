@@ -8,7 +8,4 @@
     state: present
   become: true
 
-- include: config_chrony.yml
-  tags:
-    - ansible_chrony
-    - ansible_chrony_config
+- include_tasks: config_chrony.yml
