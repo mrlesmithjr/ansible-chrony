@@ -1,11 +1,9 @@
 ---
 galaxy_info:
-  author: Larry Smith Jr
-  description: An [Ansible](https://www.ansible.com) role to install/configure [chrony](https://chrony.tuxfamily.org/) NTP server/client
-
+  author: Larry Smith Jr.
+  description: Ansible role to install/configure Chrony
   license: MIT
-
-  min_ansible_version: 1.2
+  min_ansible_version: 2.8
 
   platforms:
     - name: Debian
