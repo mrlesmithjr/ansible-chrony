@@ -1,0 +1,10 @@
+---
+- name: set_facts | Define Debian Facts
+  set_fact:
+    chrony_config: /etc/chrony/chrony.conf
+  when: ansible_os_family == "Debian"
+
+- name: set_facts | Define RedHat Facts
+  set_fact:
+    chrony_config: /etc/chrony.conf
+  when: ansible_os_family == "RedHat"

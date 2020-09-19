@@ -1,10 +1,10 @@
 ---
 # tasks file for ansible-chrony
-- include: debian.yml
-  when: ansible_os_family == "Debian"
-  tags:
-    - ansible_chrony
-    - ansible_chrony_debian
+- name: Install Chrony
+  package:
+    name: chrony
+    state: present
+  become: true
 
 - include: config_chrony.yml
   tags:
