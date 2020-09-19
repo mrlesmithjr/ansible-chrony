@@ -1,8 +1,0 @@
----
-- name: debian | Installing Chrony
-  apt:
-    name: ["chrony"]
-    state: present
-  become: true
-  register: result
-  until: result is successful

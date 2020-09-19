@@ -2,9 +2,10 @@
 - name: config_chrony | Configuring Chrony
   template:
     src: etc/chrony/chrony.conf.j2
-    dest: /etc/chrony/chrony.conf
+    dest: "{{ chrony_config }}"
     owner: root
     group: root
+    mode: u=rw,g=r,o=r
   become: true
   notify:
     - restart chrony
