@@ -8,4 +8,4 @@
     mode: u=rw,g=r,o=r
   become: true
   notify:
-    - restart chrony
+    - restart {{ chrony_service }}
