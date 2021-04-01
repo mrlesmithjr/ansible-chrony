@@ -14,9 +14,9 @@ maxupdateskew {{ chrony_maxupdateskew }}
 rtconutc
 {% for item in chrony_ntp_servers %}
 {%   if item['options'] is not defined %}
-server {{ item['server'] }}
+{{ item['type'] | default('server') }} {{ item['server'] }}
 {%   elif item['options'] is defined %}
-server {{ item['server'] }}{% for opt in item['options'] %} {{ opt['option'] }}{% if opt['val'] is defined %} {{ opt['val'] }}{% endif %}{% endfor %}
+{{ item['type'] | default('server') }} {{ item['server'] }}{% for opt in item['options'] %} {{ opt['option'] }}{% if opt['val'] is defined %} {{ opt['val'] }}{% endif %}{% endfor %}
 
 {%   endif %}
 {% endfor %}
