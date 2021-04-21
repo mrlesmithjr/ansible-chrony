@@ -10,7 +10,8 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - all
+        - stretch
+        - buster
     - name: EL
       versions:
         - all
