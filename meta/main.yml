@@ -1,5 +1,7 @@
 ---
 galaxy_info:
+  namespace: mrlesmithjr
+  role_name: chrony
   author: Larry Smith Jr.
   description: Ansible role to install/configure Chrony
   license: MIT
