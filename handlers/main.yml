@@ -11,3 +11,16 @@
     name: chronyd
     state: restarted
   become: true
+  failed_when: false
+
+- name: "REMOVE ME: journal"
+  listen: restart chronyd
+  command: journalctl -u chronyd --no-pager
+  failed_when: false
+  become: true
+
+- name: "REMOVE ME: systemctl status"
+  listen: restart chronyd
+  command: systemctl status chronyd
+  failed_when: false
+  become: true
