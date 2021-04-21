@@ -35,5 +35,3 @@ jobs:
       - name: Test with molecule
         run: |
           molecule test --scenario-name ${{ matrix.molecule_distro }}
-        env:
-          ANSIBLE_VERBOSITY: 4
