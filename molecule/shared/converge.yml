@@ -4,4 +4,4 @@
   tasks:
     - name: Include ansible-chrony
       include_role:
-        name: ansible-chrony
+        name: mrlesmithjr.chrony
