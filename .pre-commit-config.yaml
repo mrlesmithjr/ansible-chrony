@@ -13,6 +13,8 @@ repos:
       - id: no-commit-to-branch
         args: [--branch, develop, --branch, master, --branch, main]
       - id: trailing-whitespace
+        # This is contains commit messages so leaving unaltered.
+        exclude: CHANGELOG.md
   - repo: https://github.com/ansible-community/ansible-lint
     rev: v5.0.7
     hooks:
