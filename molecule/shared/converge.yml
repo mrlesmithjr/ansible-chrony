@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: Include ansible-chrony
+    - name: Include mrlesmithjr.chrony
       include_role:
         name: mrlesmithjr.chrony
