@@ -13,11 +13,11 @@ lint: |
 platforms:
   - name: centos8
     image: jrei/systemd-centos:8
-    privileged: true
     command: /usr/sbin/init
-    # tmpfs:
-    #   - /run
-    #   - /tmp
+    tmpfs:
+     - /run
+     - /tmp
+     - /var/run
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:

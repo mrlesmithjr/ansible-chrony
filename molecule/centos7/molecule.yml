@@ -13,11 +13,11 @@ lint: |
 platforms:
   - name: centos7
     image: jrei/systemd-centos:7
-    privileged: true
     command: /usr/sbin/init
-    # tmpfs:
-    #   - /run
-    #   - /tmp
+    tmpfs:
+     - /run
+     - /tmp
+     - /var/run
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:

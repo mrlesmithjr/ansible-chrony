@@ -13,11 +13,11 @@ lint: |
 platforms:
   - name: fedora
     image: jrei/systemd-fedora
-    privileged: true
     command: /usr/sbin/init
-    # tmpfs:
-    #   - /run
-    #   - /tmp
+    tmpfs:
+     - /run
+     - /tmp
+     - /var/run
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
