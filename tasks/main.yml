@@ -1,6 +1,6 @@
 ---
 # tasks file for ansible-chrony
-- include_tasks: set_facts.yml
+- import_tasks: set_facts.yml
 
 - name: Install Chrony
   package:
@@ -8,4 +8,4 @@
     state: present
   become: true
 
-- include_tasks: config_chrony.yml
+- import_tasks: config_chrony.yml
