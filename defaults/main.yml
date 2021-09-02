@@ -100,3 +100,6 @@ chrony_ntp_servers:
       - option: iburst
       - option: minpoll
         val: 8
+
+# Flag to control if the real time clock is to be kept synchronized.
+chrony_rtcsync_enabled: true

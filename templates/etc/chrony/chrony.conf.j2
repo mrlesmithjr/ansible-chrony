@@ -12,6 +12,9 @@ logchange 0.5
 logdir {{ chrony_logdir }}
 maxupdateskew {{ chrony_maxupdateskew }}
 rtconutc
+{% if chrony_rtcsync_enabled | bool %}
+rtcsync
+{% endif %}
 {% for item in chrony_ntp_servers %}
 {%   if item['options'] is not defined %}
 {{ item['type'] | default('server') }} {{ item['server'] }}
