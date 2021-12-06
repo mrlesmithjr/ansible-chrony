@@ -20,8 +20,8 @@ jobs:
         molecule_distro:
           # - alpine313
           # - alpine314
-          - centos7
-          - centos8
+          # - centos7
+          # - centos8
           # - debian8
           - debian9
           - debian10
