@@ -103,3 +103,14 @@ chrony_ntp_servers:
 
 # Flag to control if the real time clock is to be kept synchronized.
 chrony_rtcsync_enabled: true
+
+# Set makestep directive
+# This directive forces chronyd to step the system clock if the adjustment is larger
+# than a threshold value, but only if there were no more clock updates since chronyd
+# was started than the specified limit. A negative value disables the limit.
+#
+# Example configuration, which will step the clock if the adjustment is above 30 seconds,
+# but only on the first three updates:
+#  chrony_makestep:
+#    threshold: 30
+#    limit: 3

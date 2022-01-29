@@ -23,3 +23,6 @@ rtcsync
 
 {%   endif %}
 {% endfor %}
+{% if chrony_makestep %}
+makestep {{ chrony_makestep.threshold }} {{ chrony_makestep.limit }}
+{% endif %}
