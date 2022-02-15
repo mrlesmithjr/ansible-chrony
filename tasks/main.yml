@@ -7,7 +7,7 @@
     name: chrony
     state: present
     update_cache: yes
-    cache_valid_time: "{{ '3600' if ansible_pkg_mgr == 'apt' else omit }}"
+    cache_valid_time: "{{ '3600' if ansible_facts.pkg_mgr == 'apt' else omit }}"
   become: true
 
 - import_tasks: config_chrony.yml
