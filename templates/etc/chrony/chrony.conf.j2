@@ -6,7 +6,9 @@ driftfile /var/lib/chrony/chrony.drift
 dumpdir {{ chrony_dumpdir }}
 dumponexit
 keyfile /etc/chrony/chrony.keys
+{% if chrony_local_stratum | bool | default(false) %}
 local stratum {{ chrony_local_stratum }}
+{% endif %}
 log {{ chrony_log|join(' ') }}
 logchange 0.5
 logdir {{ chrony_logdir }}

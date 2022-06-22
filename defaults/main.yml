@@ -20,6 +20,8 @@ chrony_dumpdir: /var/lib/chrony
 # of a high value like 10 for the local command prevents the machine’s own time
 # from ever being confused with real time, were it ever to leak out to clients
 # that have visibility of real servers.
+#
+# N.B. this value can be set to null, which results in the `local stratum` option being omitted entirely
 chrony_local_stratum: 10
 
 # The log command indicates that certain information is to be logged. It
