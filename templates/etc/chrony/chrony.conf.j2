@@ -14,6 +14,9 @@ logchange 0.5
 logdir {{ chrony_logdir }}
 maxupdateskew {{ chrony_maxupdateskew }}
 rtconutc
+{% if chrony_makestep is defined %}
+makestep {{ chrony_makestep.threshold }} {{ chrony_makestep.limit }}
+{% endif %}
 {% if chrony_rtcsync_enabled | bool %}
 rtcsync
 {% endif %}

@@ -1,12 +1,11 @@
----
 # defaults file for ansible-chrony
 
 # Optionally specify a host, subnet, or network from which to allow NTP
 # connections to a machine acting as NTP server
 chrony_allow_hosts:
-  - 10/8
-  - 192.168/16
-  - 172.16/12
+- 10/8
+- 192.168/16
+- 172.16/12
 
 # Path to the directory to save the measurement history across restarts of
 # chronyd (assuming no changes are made to the system clock behavior whilst
@@ -49,9 +48,9 @@ chrony_local_stratum: 10
 # This option logs the temperature measurements and system rate compensations
 # to a file called tempcomp.log.
 chrony_log:
-  - tracking
-  - measurements
-  - statistics
+- tracking
+- measurements
+- statistics
 
 # This directive allows the directory where log files are written to be specified
 chrony_logdir: /var/log/chrony
@@ -62,6 +61,29 @@ chrony_logdir: /var/log/chrony
 # Typical values for skew-in-ppm might be 100 for a dial-up connection to
 # servers over a telephone line, and 5 or 10 for a computer on a LAN
 chrony_maxupdateskew: 100.0
+
+# maxstep (see https://chrony.tuxfamily.org/doc/4.0/chrony.conf.html#makestep)
+# Normally chronyd will cause the system to gradually correct any time offset,
+# by slowing down or speeding up the clock as required.
+# In certain situations, the system clock might be so far adrift that this
+# slewing process would take a very long time to correct the system clock.
+# This directive forces chronyd to step the system clock if the adjustment
+# is larger than a threshold value, but only if there were no more clock
+# updates since chronyd was started than a specified limit (a negative value
+# can be used to disable the limit).
+# This is particularly useful when using reference clocks, because the
+# initstepslew directive works only with NTP sources.
+# An example of the use of this directive is:
+#
+# chrony_makestep: {threshold: 0.1 3}
+#
+# Sometimes - e.g. on virtual machines, that can be suspended
+# and resumed - you may want to let chronyd step the clock on any update,
+# not just the first ones after it starts:
+# (see https://unix.stackexchange.com/a/484474)
+#
+# chrony_makestep: {threshold: 1, limit: -1}
+
 
 # Define upstream NTP servers
 #
@@ -82,26 +104,26 @@ chrony_maxupdateskew: 100.0
 #         val: 3
 #
 chrony_ntp_servers:
-  - server: 0.debian.pool.ntp.org
-    options:
-      - option: iburst
-      - option: minpoll
-        val: 8
-  - server: 1.debian.pool.ntp.org
-    options:
-      - option: iburst
-      - option: minpoll
-        val: 8
-  - server: 2.debian.pool.ntp.org
-    options:
-      - option: iburst
-      - option: minpoll
-        val: 8
-  - server: 3.debian.pool.ntp.org
-    options:
-      - option: iburst
-      - option: minpoll
-        val: 8
+- server: 0.debian.pool.ntp.org
+  options:
+  - option: iburst
+  - option: minpoll
+    val: 8
+- server: 1.debian.pool.ntp.org
+  options:
+  - option: iburst
+  - option: minpoll
+    val: 8
+- server: 2.debian.pool.ntp.org
+  options:
+  - option: iburst
+  - option: minpoll
+    val: 8
+- server: 3.debian.pool.ntp.org
+  options:
+  - option: iburst
+  - option: minpoll
+    val: 8
 
 # Flag to control if the real time clock is to be kept synchronized.
 chrony_rtcsync_enabled: true
