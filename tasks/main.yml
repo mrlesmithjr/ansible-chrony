@@ -1,6 +1,13 @@
 ---
 # tasks file for ansible-chrony
-- import_tasks: set_facts.yml
+- name: Gather system facts
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_facts['os_family'] | lower }}.yml"
+      paths:
+        - "{{ role_path }}/vars"
 
 - name: Install Chrony
   package:
