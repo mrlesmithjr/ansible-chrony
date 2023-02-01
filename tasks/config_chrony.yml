@@ -1,6 +1,6 @@
 ---
 - name: config_chrony | Configuring Chrony
-  template:
+  ansible.builtin.template:
     src: etc/chrony/chrony.conf.j2
     dest: "{{ chrony_config }}"
     owner: root

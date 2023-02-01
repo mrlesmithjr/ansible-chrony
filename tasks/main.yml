@@ -1,13 +1,15 @@
 ---
 # tasks file for ansible-chrony
-- import_tasks: set_facts.yml
+- name: Set facts
+  ansible.builtin.import_tasks: set_facts.yml
 
 - name: Install Chrony
-  package:
+  ansible.builtin.package:
     name: chrony
     state: present
     update_cache: yes
     cache_valid_time: "{{ '3600' if ansible_facts.pkg_mgr == 'apt' else omit }}"
   become: true
 
-- import_tasks: config_chrony.yml
+- name: Configure Chrony
+  ansible.builtin.import_tasks: config_chrony.yml
