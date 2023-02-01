@@ -5,7 +5,7 @@ commandkey 1
 driftfile /var/lib/chrony/chrony.drift
 dumpdir {{ chrony_dumpdir }}
 dumponexit
-keyfile /etc/chrony/chrony.keys
+keyfile {{ chrony_keys }}
 {% if chrony_local_stratum | bool | default(false) %}
 local stratum {{ chrony_local_stratum }}
 {% endif %}

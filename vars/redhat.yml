@@ -1,3 +1,4 @@
 ---
 chrony_config: /etc/chrony.conf
 chrony_service: chronyd
+chrony_keys: /etc/chrony.keys
