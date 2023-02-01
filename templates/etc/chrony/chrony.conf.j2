@@ -1,7 +1,9 @@
 {% for item in chrony_allow_hosts %}
 allow {{ item }}
 {% endfor %}
+{% if not ansible_facts.os_family == 'RedHat' %}
 commandkey 1
+{% endif %}
 driftfile /var/lib/chrony/chrony.drift
 dumpdir {{ chrony_dumpdir }}
 dumponexit
