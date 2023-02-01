@@ -18,10 +18,6 @@ rtconutc
 rtcsync
 {% endif %}
 {% for item in chrony_ntp_servers %}
-{%   if item['options'] is not defined %}
-{{ item['type'] | default('server') }} {{ item['server'] }}
-{%   elif item['options'] is defined %}
-{{ item['type'] | default('server') }} {{ item['server'] }}{% for opt in item['options'] %} {{ opt['option'] }}{% if opt['val'] is defined %} {{ opt['val'] }}{% endif %}{% endfor %}
+{{ item.type | default('server') }} {{ item.server }}{% for opt in item.options | default([]) %} {{ opt.option }}{% if opt.val is defined %} {{ opt.val }}{% endif %}{% endfor %}
 
-{%   endif %}
 {% endfor %}
