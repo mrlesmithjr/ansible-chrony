@@ -9,7 +9,7 @@ python = "^3.7"
 ansible = "^3.1.0"
 ansible-lint = "^5.0.6"
 docker = "^4.4.4"
-mkdocs = "^1.1.2"
+mkdocs = "^1.2.3"
 molecule = {extras = ["docker"], version = "^3.3.0"}
 pip-tools = "^6.0.1"
 yamllint = "^1.26.0"
