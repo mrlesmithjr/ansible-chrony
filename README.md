@@ -8,10 +8,6 @@ Ansible role to install/configure Chrony
 
 ![Molecule Test](https://github.com/mrlesmithjr/ansible-chrony/workflows/Molecule%20Test/badge.svg)
 
-### Travis CI
-
-[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-chrony.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-chrony)
-
 ## Requirements
 
 For any required Ansible roles, review:
