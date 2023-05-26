@@ -16,11 +16,11 @@ repos:
         # This is contains commit messages so leaving unaltered.
         exclude: CHANGELOG.md
   - repo: https://github.com/ansible-community/ansible-lint
-    rev: v6.11.0
+    rev: v6.16.2
     hooks:
       - id: ansible-lint
   - repo: https://github.com/psf/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
         language_version: python3
@@ -29,6 +29,6 @@ repos:
     hooks:
       - id: flake8
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.29.0
+    rev: v1.32.0
     hooks:
       - id: yamllint
