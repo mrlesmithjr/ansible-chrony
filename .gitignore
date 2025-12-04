@@ -8,3 +8,5 @@ env.bak/
 venv.bak/
 
 poetry.lock
+
+.vscode
