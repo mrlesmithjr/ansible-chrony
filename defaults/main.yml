@@ -106,3 +106,21 @@ chrony_ntp_servers:
 
 # Flag to control if the real time clock is to be kept synchronized.
 chrony_rtcsync_enabled: true
+
+# The makestep directive tells chronyd to step the system clock if the time
+# error is larger than the threshold value, but only during the first number
+# of updates. After that, it will slew. A threshold of 0.001 means that if the
+# error is larger than 1 millisecond but smaller than 1 second, chronyd will
+# slew the clock. A threshold of 1.0 means that if the error is larger than 1
+# second, chronyd will step the clock.
+#
+# This is particularly useful for virtual machines, where the time can drift
+# significantly during suspend/resume cycles or host time changes.
+#
+# Format:
+# makestep <threshold> <attempts>
+# threshold: seconds (float)
+# attempts:  number of updates (int, -1 for unlimited)
+chrony_makestep_enabled: false
+chrony_makestep_threshold: 1.0
+chrony_makestep_attempts: 3

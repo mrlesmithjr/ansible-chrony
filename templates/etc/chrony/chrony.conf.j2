@@ -2,6 +2,9 @@
 allow {{ item }}
 {% endfor %}
 driftfile /var/lib/chrony/chrony.drift
+{% if chrony_makestep_enabled | bool %}
+makestep {{ chrony_makestep_threshold }} {{ chrony_makestep_attempts }}
+{% endif %}
 dumpdir {{ chrony_dumpdir }}
 dumponexit
 keyfile /etc/chrony/chrony.keys
