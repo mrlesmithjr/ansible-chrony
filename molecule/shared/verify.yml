@@ -1,9 +1,27 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
   tasks:
-  - name: Example assertion
-    ansible.builtin.assert:
-      that: true
+    - name: Get chrony config path
+      ansible.builtin.set_fact:
+        chrony_config_path: "{{ '/etc/chrony/chrony.conf' if ansible_facts.os_family == 'Debian' else '/etc/chrony.conf' }}"
+
+    - name: Check if makestep line is present in config
+      ansible.builtin.lineinfile:
+        path: "{{ chrony_config_path }}"
+        regexp: '^makestep'
+        state: absent
+      check_mode: true
+      register: makestep_check
+
+    - name: Assert makestep is absent when disabled (default)
+      ansible.builtin.assert:
+        that: not makestep_check.changed
+        fail_msg: "makestep line should not be present when chrony_makestep_enabled is false (default)"
+      when: not (chrony_makestep_enabled | default(false) | bool)
+
+    - name: Assert makestep is present when enabled
+      ansible.builtin.assert:
+        that: makestep_check.changed
+        fail_msg: "makestep line not found in chrony.conf when chrony_makestep_enabled is true"
+      when: chrony_makestep_enabled | default(false) | bool
