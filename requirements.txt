@@ -8,12 +8,12 @@ ansible==11.13.0
     # via -r requirements.in
 ansible-compat==25.12.1
     # via molecule
-ansible-core==2.18.14
+ansible-core==2.18.15
     # via
     #   ansible
     #   ansible-compat
     #   molecule
-attrs==25.4.0
+attrs==26.1.0
     # via
     #   jsonschema
     #   referencing
@@ -80,7 +80,7 @@ referencing==0.37.0
     # via
     #   jsonschema
     #   jsonschema-specifications
-requests==2.32.5
+requests==2.33.0
     # via
     #   docker
     #   molecule-plugins

@@ -8,7 +8,7 @@ ansible-compat==25.12.1
     # via
     #   -c requirements.txt
     #   ansible-lint
-ansible-core==2.18.14
+ansible-core==2.18.15
     # via
     #   -c requirements.txt
     #   ansible-compat
@@ -17,7 +17,7 @@ ansible-lint==26.3.0
     # via -r requirements-dev.in
 astroid==4.0.4
     # via pylint
-attrs==25.4.0
+attrs==26.1.0
     # via
     #   -c requirements.txt
     #   jsonschema
