@@ -11,8 +11,8 @@ molecule = "^24.0"
 molecule-plugins = {extras = ["docker"], version = "*"}
 
 [tool.poetry.group.dev.dependencies]
-ansible-lint = "^24.0"
-black = "^24.0"
+ansible-lint = ">=24,<27"
+black = ">=24,<27"
 pylint = "^3.0"
 flake8 = "^7.0"
 cookiecutter = "^2.6"
