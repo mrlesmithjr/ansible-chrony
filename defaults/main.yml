@@ -25,6 +25,12 @@ chrony_dumpdir: /var/lib/chrony
 # option being omitted entirely.
 chrony_local_stratum: 10
 
+# Enable orphan mode for the local directive (`local stratum N orphan`).
+# Useful when several servers in a group poll each other: if all upstream
+# sources are lost, they agree on a common time instead of each serving its
+# own clock. Only effective when chrony_local_stratum is > 0.
+chrony_local_orphan: false
+
 # The log command indicates that certain information is to be logged. It
 # accepts the following options:
 # measurements
@@ -124,3 +130,12 @@ chrony_rtcsync_enabled: true
 chrony_makestep_enabled: false
 chrony_makestep_threshold: 1.0
 chrony_makestep_attempts: 3
+
+# Additional directives appended verbatim to the end of the configuration file,
+# one list item per line. Covers directives this role does not template
+# explicitly, e.g.:
+# chrony_extra_config:
+#   - minsources 2
+#   - ntsdumpdir /var/lib/chrony
+#   - leapsectz right/UTC
+chrony_extra_config: []

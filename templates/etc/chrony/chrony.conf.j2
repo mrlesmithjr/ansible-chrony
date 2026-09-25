@@ -9,7 +9,8 @@ dumpdir {{ chrony_dumpdir }}
 dumponexit
 keyfile /etc/chrony/chrony.keys
 {% if chrony_local_stratum is defined and chrony_local_stratum | int > 0 %}
-local stratum {{ chrony_local_stratum }}
+local stratum {{ chrony_local_stratum }}{% if chrony_local_orphan | bool %} orphan{% endif %}
+
 {% endif %}
 log {{ chrony_log|join(' ') }}
 logchange 0.5
@@ -26,4 +27,7 @@ rtcsync
 {{ item['type'] | default('server') }} {{ item['server'] }}{% for opt in item['options'] %} {{ opt['option'] }}{% if opt['val'] is defined %} {{ opt['val'] }}{% endif %}{% endfor %}
 
 {%   endif %}
+{% endfor %}
+{% for line in chrony_extra_config %}
+{{ line }}
 {% endfor %}
