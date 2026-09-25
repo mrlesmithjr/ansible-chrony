@@ -25,3 +25,38 @@
         that: makestep_check.changed
         fail_msg: "makestep line not found in chrony.conf when chrony_makestep_enabled is true"
       when: chrony_makestep_enabled | default(false) | bool
+
+    - name: Check if local stratum line has orphan option
+      ansible.builtin.lineinfile:
+        path: "{{ chrony_config_path }}"
+        regexp: '^local stratum \d+ orphan$'
+        state: absent
+      check_mode: true
+      register: orphan_check
+
+    - name: Assert orphan option is absent when disabled (default)
+      ansible.builtin.assert:
+        that: not orphan_check.changed
+        fail_msg: "local stratum line should not have the orphan option when chrony_local_orphan is false (default)"
+      when: not (chrony_local_orphan | default(false) | bool)
+
+    - name: Assert orphan option is present when enabled
+      ansible.builtin.assert:
+        that: orphan_check.changed
+        fail_msg: "local stratum line with orphan option not found in chrony.conf when chrony_local_orphan is true"
+      when: chrony_local_orphan | default(false) | bool
+
+    - name: Check that extra config lines are present
+      ansible.builtin.lineinfile:
+        path: "{{ chrony_config_path }}"
+        line: "{{ item }}"
+        state: present
+      check_mode: true
+      register: extra_config_check
+      loop: "{{ chrony_extra_config | default([]) }}"
+
+    - name: Assert extra config lines are present
+      ansible.builtin.assert:
+        that: not (extra_config_check.results | selectattr('changed') | list)
+        fail_msg: "Not all chrony_extra_config lines were found in chrony.conf"
+      when: chrony_extra_config | default([]) | length > 0
